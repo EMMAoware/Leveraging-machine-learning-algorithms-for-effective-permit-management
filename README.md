@@ -41,14 +41,18 @@ For the preprocessing stage, the following tasks were carried out:
 #### Train and Test splits 
 After completing data pre-processing, the next stage was to build different models. The data was now split into training and testing data using a ratio of 80% training data and 20% testing data.
 
-### Models
-The goal of the models created was to calculate the cost of the permits issued by the Commission based on a number of variables. The objective of this study is money, which is a continuous variable, thus the models to be used are all regression-based algorithms.
-Several algorithms were tested namely: Multiple linear Regressor, Decision Tree Regressor, Random Forest Regressor, and Gradient Boosting Regressor
-Each model underwent evaluation through metrics such as Mean Squared Error, R-squared, and Mean Absolute Error. Cross-validation techniques were also applied to ensure the models' robustness and generalizability
-
 #### Multiple Linear Regression
-Multiple Linear Regression (MLR) is a widely used statistical method in data analysis and predictive modeling, which allows an understanding of the relationship between a dependent variable and two or more independent variables. Multiple Linear Regression extends simple linear regression by accommodating multiple predictors (independent variables) to model the outcome of a dependent variable
-
-##### Discussion
 The linear regression model shows a substantial improvement in performance after the logarithmic transformation of the "Quantity" and "Amount paid" variables. The R-squared value increased significantly from 0.449 to 0.788. Cross-validation achieved a score of 72.9, suggesting that the model generalizes well to new data.
 
+#### Decision Tree
+The decision tree regression model was initially configured with a maximum depth of three. The model achieved an R-squared value of 0.90. After hyperparameter
+tuning, the optimum depth size for which the model was able to achieve its maximum accuracy was found to be 4 or higher. This resulted in an R-squared value of 0.98.
+
+#### Random Forest 
+The random forest regression model was initially configured with the number of trees or estimations set at ten. The model achieved an R-squared value of 0.986. After hyperparameter tuning, the optimum number of trees was found to be 150 for which the model recorded a slight improvement by recording and R-squared value of 0.9877.
+
+#### Gradient Boost Regressor
+The random boost regression model was initially configured with a max depth of 2, the number of trees or estimations set at three, and a learning rate of 1. An R-squared value of 0.892 was achieved. Hyperparameter tuning performed via GridSearchCV, aimed to search for the best combination of hyperparameters. The identified values were : max_depth = 4, n_estimators = 100, and learning_rate = 0.1 all resulted in a significantly improved R-squared score of 0.989.
+
+### Conclusion
+The high accuracy of predictions regarding the amount paid for permits enhances the Commission’s ability to anticipate and allocate resources effectively, facilitating better regulatory decision-making. Moreover, the insights gleaned from this model can potentially aid in the identification of anomalies or irregularities in the issuance of permits and enhance the overall effectiveness of the permit management process. 
